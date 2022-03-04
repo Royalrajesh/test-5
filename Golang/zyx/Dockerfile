@@ -2,5 +2,5 @@ FROM centos
 RUN yum install httpd -y
 
 echo gfghjgkugh
-echo Test
+RUN echo Test
 echo testing again
