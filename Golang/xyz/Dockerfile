@@ -1,3 +1,3 @@
 FROM centos
 RUN echo Test
-RUN echo rdrtdyfyfgb
+RUN echo third
