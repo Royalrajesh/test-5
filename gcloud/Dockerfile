@@ -1,4 +1,4 @@
 FROM centos
-RUN yum install httpd -y
-echo Test
-echo shouldn't trigger
+RUN yum update -y
+RUN echo Test
+RUN echo shouldn't trigger
