@@ -1,3 +1,3 @@
 FROM centos
-RUN yum install httpd -y
+RUN yum update -y
 RUN echo Test
