@@ -49,5 +49,5 @@ jobs:
           pwd
           docker build $file/.
           # docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
-          push: ${{ github.ref == 'refs/heads/main' }}
+          # push: ${{ github.ref == 'refs/heads/main' }}
           done
