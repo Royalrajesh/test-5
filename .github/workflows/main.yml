@@ -45,7 +45,8 @@ jobs:
         name: Build
         run: |
           for file in Golang/*; do
-          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
+          pwd
+          docker build $file/.
+          # docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
           push: ${{ github.ref == 'refs/heads/main' }}
           done
