@@ -1,3 +1,3 @@
 FROM centos
 RUN echo Test
-RUN echo testing again
+RUN echo testing again twice
