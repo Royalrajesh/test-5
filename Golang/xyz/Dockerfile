@@ -1,3 +1,3 @@
 FROM centos
 RUN echo Test
-RUN echo third
+RUN echo third time now
