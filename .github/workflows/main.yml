@@ -37,17 +37,17 @@ jobs:
       #     push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push to Docker Hub and GitHub Container Registry
-        # uses: docker/build-push-action@v2
-        uses: docker/setup-buildx-action@v1
+        uses: docker/build-push-action@v2
+        # uses: docker/setup-buildx-action@v1
         id: buildx
         with:
-          install: true
+          allow : true
       -
         name: Build
         run: |
           for file in Golang/*; do
           pwd
           docker build $file/.
-          # docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
-          # push: ${{ github.ref == 'refs/heads/main' }}
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
+          push: ${{ github.ref == 'refs/heads/main' }}
           done
