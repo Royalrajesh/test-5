@@ -1,4 +1,4 @@
-name: golang ci
+name: build docker images
 
 on:
   push:
@@ -18,20 +18,34 @@ jobs:
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ghcr.io
-          username: Royalrajesh
+          username: Rajeshroyal
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
       - name: get latest sha of 8 digits.
         run: echo "GITHUB_SHA_SHORT=$(git rev-parse HEAD | cut -c 33-40)" >> $GITHUB_ENV
         
+      # - name: Build image and push to Docker Hub and GitHub Container Registry
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     # relative path to the place where source code with Dockerfile is located
+      #     file: ./Golang/dockerfile
+      #     # Note: tags has to be all lower-case
+      #     tags: |
+      #       ghcr.io/Merit/dockerfiles/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
+      #       ghcr.io/Merit/dockerfiles/golang:alpine-latest
+      #     # build on feature branches, push only on main branch
+      #     push: ${{ github.ref == 'refs/heads/main' }}
+
       - name: Build image and push to Docker Hub and GitHub Container Registry
         uses: docker/build-push-action@v2
+        id: buildx
         with:
-          # relative path to the place where source code with Dockerfile is located
-          file: ./src/dockerfile
-          # Note: tags has to be all lower-case
-          tags: |
-            ghcr.io/Royalrajesh/test-5/golang:${{ env.GITHUB_SHA_SHORT }}
-            ghcr.io/Royalrajesh/test-5/golang:latest
-          # build on feature branches, push only on main branch
+          install: true
+      -
+        name: Build
+        run: |
+          for file in Golang/*; do
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
           push: ${{ github.ref == 'refs/heads/main' }}
+          done
