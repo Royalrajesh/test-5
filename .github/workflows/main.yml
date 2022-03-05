@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - Golang/**
+      - golang/**
 
 jobs:
   docker:
@@ -34,6 +34,6 @@ jobs:
 
       - name: Push image to Github Container Registry
         run: |
-          docker push ghcr.io/rajeshroyal/test-5/Golang/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
-          docker push ghcr.io/rajeshroyal/test-5/Golang/golang:alpine-latest
+          docker push ghcr.io/rajeshroyal/test-5/golang/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
+          docker push ghcr.io/rajeshroyal/test-5/golang/golang:alpine-latest
           
