@@ -23,8 +23,8 @@ jobs:
           #docker build $file/.
           docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-latest $file/.
           docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-fuzz latest $file/.
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-fuzz${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-fuzz-latest $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-fuzz-${{ env.GITHUB_SHA_SHORT }} $file/.
           done
 
       - name: Log in to the Container registry
@@ -39,8 +39,8 @@ jobs:
           
           docker push ghcr.io/royalrajesh/test-5/golang:alpine-latest
           docker push ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
-          docker push ghcr.io/royalrajesh/test-5/golang:alpine-fuzz latest
-          docker push ghcr.io/royalrajesh/test-5/golang:alpine-fuzz${{ env.GITHUB_SHA_SHORT }}
+          docker push ghcr.io/royalrajesh/test-5/golang:alpine-fuzz-latest
+          docker push ghcr.io/royalrajesh/test-5/golang:alpine-fuzz-${{ env.GITHUB_SHA_SHORT }}
           
           
           
