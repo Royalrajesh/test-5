@@ -22,18 +22,18 @@ jobs:
           for file in Golang/*; do
           #docker build $file/.
           docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest $file/.
           done
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ghcr.io
-          username: Royalrajesh
+          username: Rajesh-enlume
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push image to Github Container Registry
         run: |
           docker push ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
-          docker push ghcr.io/Rajeshroyal/test-5/golang:alpine-latest 
+          docker push ghcr.io/Rajeshroyal/test-5/golang:alpine-latest
           
