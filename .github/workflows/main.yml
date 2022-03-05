@@ -19,7 +19,7 @@ jobs:
 
       - name: Build image
         run: |
-          for file in Golang/*; do
+          for file in golang/*; do
           #docker build $file/.
           docker build -t ghcr.io/rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
           docker build -t ghcr.io/rajeshroyal/test-5/golang:alpine-latest $file/.
