@@ -21,8 +21,8 @@ jobs:
         run: |
           for file in Golang/*; do
           #docker build $file/.
-          docker build -t ghcr.io/rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/rajeshroyal/test-5/golang:alpine-latest $file/.
+          docker build -t ghcr.io/rajeshroyal/test-5/Golang/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/rajeshroyal/test-5/Golang/golang:alpine-latest $file/.
           done
 
       - name: Log in to the Container registry
