@@ -21,8 +21,8 @@ jobs:
         run: |
           for file in Golang/*; do
           #docker build $file/.
-          docker build -t ghcr.io/Merit/dockerfiles/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/Merit/dockerfiles/golang:alpine-latest $file/.
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/Rajeshroyal/test-5/golang:alpine-latest
           done
 
       - name: Log in to the Container registry
@@ -34,5 +34,6 @@ jobs:
 
       - name: Push image to Github Container Registry
         run: |
-          docker push ghcr.io/Merit/dockerfiles/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
-          docker push ghcr.io/Merit/dockerfiles/golang:alpine-latest
+          docker push ghcr.io/Rajeshroyal/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }}
+          docker push ghcr.io/Rajeshroyal/test-5/golang:alpine-latest 
+          
