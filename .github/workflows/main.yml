@@ -20,7 +20,7 @@ jobs:
       - name: tag image
         run: |
           for file in golang/*; do
-          #docker tag $file/.
+          #docker build $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang:alpine-latest $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang:alpinefuzz-latest $file/.
