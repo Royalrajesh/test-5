@@ -17,14 +17,14 @@ jobs:
       - name: get latest sha of 8 digits.
         run: echo "GITHUB_SHA_SHORT=$(git rev-parse HEAD | cut -c 33-40)" >> $GITHUB_ENV
 
-      - name: tag image
+      - name: build image
         run: |
           for file in golang/*; do
           
-          docker tag ghcr.io/royalrajesh/test-5/golang:alpine-latest $file/.
-          docker tag ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker tag ghcr.io/royalrajesh/test-5/golang:alpinefuzz-latest $file/.
-          docker tag ghcr.io/royalrajesh/test-5/golang:alpinefuzz-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-latest $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpinefuzz-latest $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpinefuzz-${{ env.GITHUB_SHA_SHORT }} $file/.
           done
 
       - name: Log in to the Container registry
