@@ -21,10 +21,10 @@ jobs:
         run: |
           for file in golang/*; do
           
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-${latest} $file/.
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine-${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpinefuzz-${latest} $file/.
-          docker build -t ghcr.io/royalrajesh/test-5/golang:alpinefuzz-${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker build -t ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker tag ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpine:latest
+          docker build -t ghcr.io/test-5/dockerfiles3/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker tag ghcr.io/test-5/dockerfiles3/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpinefuzz:latest
           done
 
       - name: Log in to the Container registry
