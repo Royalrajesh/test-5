@@ -38,6 +38,7 @@ jobs:
         run: |
           
           
-          docker push -a ghcr.io/royalrajesh/test-5/golang
+          push: ${{ github.ref == 'refs/heads/main' }}
+
           
           
