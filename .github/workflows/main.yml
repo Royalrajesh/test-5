@@ -38,8 +38,8 @@ jobs:
 
       - name: Push image to Github Container Registry
         run: |
-             docker push -a ghcr.io/royalrajesh/test-5/golang-alpine
-             docker push -a ghcr.io/royalrajesh/test-5/golang-alpinefuzz
+             docker push -a ghcr.io/royalrajesh/test-5/golang
+            
              
           
           
