@@ -21,11 +21,10 @@ jobs:
         run: |
           for file in golang/*; do
           
-          docker build -t ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker tag ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpine:latest
-          docker images
-          docker build -t ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker tag ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpinefuzz:latest
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpine ${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker tag ghcr.io/royalrajesh/test-5/golang:alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang:alpine-latest
+          docker build -t ghcr.io/royalrajesh/test-5/golang:alpinefuzz:${{ env.GITHUB_SHA_SHORT }} $file/.
+          docker tag ghcr.io/royalrajesh/test-5/golang:alpinefuzz:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang:alpinefuzz-latest
           docker images
           done
 
@@ -38,8 +37,8 @@ jobs:
 
       - name: Push image to Github Container Registry
         run: |
-             docker image push --all-tags ghcr.io/royalrajesh/test-5/golang-alpine
-             docker image push --all-tags ghcr.io/royalrajesh/test-5/golang-alpinefuzz
+             docker image push --all-tags ghcr.io/royalrajesh/test-5/golang:alpine-latest
+             docker image push --all-tags ghcr.io/royalrajesh/test-5/golang:alpinefuzz-latest
             
              
           
