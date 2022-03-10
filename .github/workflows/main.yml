@@ -23,8 +23,10 @@ jobs:
           
           docker build -t ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpine:latest
+          docker images
           docker build -t ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpinefuzz:latest
+          docker images
           done
 
       - name: Log in to the Container registry
