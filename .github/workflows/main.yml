@@ -37,6 +37,6 @@ jobs:
       - name: Push image to Github Container Registry
         run: |
           
-          docker push -a
+          docker push -a ghcr.io/royalrajesh/test-5/golang
           
           
