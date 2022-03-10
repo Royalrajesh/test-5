@@ -22,7 +22,7 @@ jobs:
           for file in golang/*; do
           
           docker build -t ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} $file/.
-          docker ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpine:latest
+          docker tag ghcr.io/royalrajesh/test-5/golang-alpine:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpine:latest
           docker build -t ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} $file/.
           docker tag ghcr.io/royalrajesh/test-5/golang-alpinefuzz:${{ env.GITHUB_SHA_SHORT }} ghcr.io/royalrajesh/test-5/golang-alpinefuzz:latest
           done
