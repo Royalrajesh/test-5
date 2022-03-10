@@ -37,6 +37,6 @@ jobs:
       - name: Push image to Github Container Registry
         run: |
           
-          docker push -a ghcr.io
+          docker push -a
           
           
